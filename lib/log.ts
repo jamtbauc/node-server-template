@@ -1,4 +1,3 @@
-
 import { createLogger, format, Logger, transports } from "winston";
 
 export class Log {
@@ -22,7 +21,6 @@ export class Log {
         return this.logger.error(message);
     }
     
-
     get_logger(): Logger {
         return this.logger;
     }

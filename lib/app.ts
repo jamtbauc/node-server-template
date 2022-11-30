@@ -20,10 +20,6 @@ export class App {
             next();
         });
 
-        this.app.get('/', (req:Request, res:Response): void => {
-            res.send("Hello, World!");
-        });
-
         this.app.use(routes.get_router());
 
         this.app.listen(this.PORT, (): void => {
