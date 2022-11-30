@@ -1,10 +1,11 @@
 import { Router } from "express";
+import { Log } from "../lib/log";
 import { Test } from "../routes/test";
 
 export class Routes {
     private router: Router = Router();
 
-    constructor() {
+    constructor(private log: Log) {
         let test = new Test();
 
         this.router.use("/test/", test.get_router());

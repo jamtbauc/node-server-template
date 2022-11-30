@@ -5,17 +5,18 @@ import { Routes } from "../routes/index";
 
 export class App {
     private PORT: number = 3000;
+    private log: Log;
 
     constructor(
         private app: Application
     ) {
-        let logger: Log  = new Log();
-        let routes: Routes = new Routes();
+        this.log = new Log();
+        let routes: Routes = new Routes(this.log);
 
         this.app.use(compression);
 
         this.app.use((req: Request, res: Response, next: NextFunction): void => {
-            logger.info(`Hit on ${req.url}`);
+            this.log.info(`Hit on ${req.url}`);
             next();
         });
 
@@ -26,7 +27,7 @@ export class App {
         this.app.use(routes.get_router());
 
         this.app.listen(this.PORT, (): void => {
-            logger.info(`App is running and listening on port: ${this.PORT}`);
+            this.log.info(`App is running and listening on port: ${this.PORT}`);
         });
     }
 }
