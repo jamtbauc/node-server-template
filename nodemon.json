@@ -11,7 +11,8 @@
     },
     "watch": [
         "./src",
-        "./lib"
+        "./lib",
+        "./routes"
     ],
     "env": {
         "NODE_ENV": "development"
