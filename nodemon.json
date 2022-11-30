@@ -10,11 +10,10 @@
       "ts": "node -r ts-node/register"
     },
     "watch": [
-        "./src",
-        "./lib"
+        "./src"
     ],
     "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "dev"
     },
     "ext": "js,json,ts,properties"
   }

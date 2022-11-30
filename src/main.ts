@@ -1,4 +1,4 @@
-import { App } from "../lib/app";
+import { App } from "./lib/app";
 import express from "express";
 
 // Run app
