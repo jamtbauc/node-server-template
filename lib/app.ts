@@ -13,7 +13,7 @@ export class App {
         this.log = new Log();
         let routes: Routes = new Routes(this.log);
 
-        this.app.use(compression);
+        this.app.use(compression());
 
         this.app.use((req: Request, res: Response, next: NextFunction): void => {
             this.log.info(`Hit on ${req.url}`);
