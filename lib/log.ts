@@ -14,9 +14,14 @@ export class Log {
         });
     }
 
-    info(message: string) {
+    public info(message: string) {
         return this.logger.info(message);
     }
+
+    public error(message: string) {
+        return this.logger.error(message);
+    }
+    
 
     get_logger(): Logger {
         return this.logger;
