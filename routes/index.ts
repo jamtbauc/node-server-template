@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { Log } from "../lib/log";
 import { Database } from "../lib/db/index";
-import { Test } from "../routes/test";
+
+import { GameRouter } from "./gameRouter";
 
 export class Routes {
     private router: Router = Router();
@@ -10,10 +11,8 @@ export class Routes {
     constructor(private log: Log) {
         // Create database
         this.database = new Database(this.log);
-        
-        let test = new Test();
 
-        this.router.use("/test/", test.get_router());
+        this.router.use("/games", new GameRouter(this.database).get_router());
     }
 
     get_router() {
