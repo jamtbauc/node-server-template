@@ -1,6 +1,6 @@
 import { Application, Request, Response, NextFunction } from "express";
 import compression from "compression";
-import { Log } from "../lib/log";
+import { Log } from "./log";
 import { Routes } from "../routes/index";
 
 export class App {
