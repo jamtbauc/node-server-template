@@ -1,18 +1,14 @@
 import { Pool, QueryResult } from "pg";
 import { Log } from "../log";
 
+import * as dbConfig from "./dbConfig.json";
+
 export class Database {
     private pool: Pool;
     constructor(
         private log: Log
     ) {
-        this.pool = new Pool({
-            host: 'localhost',
-            user: 'jamtbauc',
-            database: 'sports',
-            password: 'postgres',
-            port: 5432
-        });
+        this.pool = new Pool(dbConfig);
     }
 
     async query(text: string, params: string[]): Promise<QueryResult<any>> {
