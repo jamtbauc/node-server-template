@@ -35,7 +35,11 @@ export class App {
         this.app.use(json());
 
         this.app.use((req: Request, res: Response, next: NextFunction): void => {
-            this.log.info(`Hit on ${req.url}`);
+            if (req.originalUrl.includes('favicon.ico')) {
+                res.status(204).end()
+            } else {
+                this.log.info(`Hit on ${req.url}`);
+            }
             next();
         });
 
