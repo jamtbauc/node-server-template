@@ -7,10 +7,10 @@ export class PlayerGameRouter {
     private router: Router = Router();
     private playerGameQueries: PlayerGameQueries = new PlayerGameQueries();
 
-     constructor(
+    constructor(
         private log: Log,
         private database: Database
-     ) {
+    ) {
         this.router.get("/", async (req: Request, res: Response) => {
             const result = await this.database.query(
                 this.playerGameQueries.getAllPlayerGames()

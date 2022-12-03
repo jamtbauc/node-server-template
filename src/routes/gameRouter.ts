@@ -8,10 +8,10 @@ export class GameRouter {
     private router: Router = Router();
     private gameQueries: GameQueries = new GameQueries();
 
-     constructor(
+    constructor(
         private log: Log,
         private database: Database
-     ) {
+    ) {
         this.router.get("/", async (req: Request, res: Response) => {
             const result = await this.database.query(
                 this.gameQueries.getAllGames()

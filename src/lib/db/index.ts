@@ -15,7 +15,7 @@ export class Database {
         // break up array
         const text = queryArr[0];
         const params = queryArr[1];
-        
+
         const start: number = Date.now();
         const res: QueryResult<any> = await this.pool.query(text, params);
         const duration: number = Date.now() - start;

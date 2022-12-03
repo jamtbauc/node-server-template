@@ -20,7 +20,7 @@ export class Log {
     public error(message: string) {
         return this.logger.error(message);
     }
-    
+
     get_logger(): Logger {
         return this.logger;
     }
