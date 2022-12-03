@@ -11,7 +11,11 @@ export class Database {
         this.pool = new Pool(dbConfig);
     }
 
-    async query(text: string, params: string[]): Promise<QueryResult<any>> {
+    async query(queryArr: [string, any[]]): Promise<QueryResult<any>> {
+        // break up array
+        const text = queryArr[0];
+        const params = queryArr[1];
+        
         const start: number = Date.now();
         const res: QueryResult<any> = await this.pool.query(text, params);
         const duration: number = Date.now() - start;

@@ -6,6 +6,6 @@ export class Reporter {
         private log: Log,
         private datbase: Database
     ) {
-        
+           
     }
 }
