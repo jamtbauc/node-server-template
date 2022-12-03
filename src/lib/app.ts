@@ -1,4 +1,4 @@
-import { Application, Request, Response, NextFunction } from "express";
+import { Application, Request, Response, NextFunction, json } from "express";
 import compression from "compression";
 import { Log } from "./log";
 import { Routes } from "../routes/index";
@@ -14,6 +14,8 @@ export class App {
         let routes: Routes = new Routes(this.log);
 
         this.app.use(compression());
+
+        this.app.use(json());
 
         this.app.use((req: Request, res: Response, next: NextFunction): void => {
             this.log.info(`Hit on ${req.url}`);
