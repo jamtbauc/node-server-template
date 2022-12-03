@@ -23,17 +23,17 @@ export class App {
             this.log,
             this.database
         );
-
+        // Create routes object with all defined routes in routes/index.ts
         let routes: Routes = new Routes(
             this.log,
             this.database,
             this.reporter
         );
-
+        // Tell app to use compression
         this.app.use(compression());
-
+        // Tell app to use JSON body parser
         this.app.use(json());
-
+        // Tell app to use middleware on every request: Log url hit
         this.app.use((req: Request, res: Response, next: NextFunction): void => {
             if (req.originalUrl.includes('favicon.ico')) {
                 res.status(204).end()
@@ -42,9 +42,9 @@ export class App {
             }
             next();
         });
-
+        // Attach all routes from route object
         this.app.use(routes.get_router());
-
+        // Tell server to listen for requests
         this.app.listen(this.PORT, (): void => {
             this.log.info(`App is running and listening on port: ${this.PORT}`);
         });
