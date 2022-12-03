@@ -10,9 +10,7 @@
       "ts": "node -r ts-node/register"
     },
     "watch": [
-        "./src",
-        "./lib",
-        "./routes"
+        "./src/*"
     ],
     "env": {
         "NODE_ENV": "development"
