@@ -1,9 +1,11 @@
 import { Request, Response, Router } from "express";
 import { Database } from "../lib/db";
+import { PlayerGameQueries } from "../lib/db/playerGameQueries";
 import { Log } from "../lib/log";
 
 export class PlayerGameRouter {
-    router: Router = Router();
+    private router: Router = Router();
+    private playerGameQueries: PlayerGameQueries = new PlayerGameQueries();
 
      constructor(
         private log: Log,
@@ -11,7 +13,7 @@ export class PlayerGameRouter {
      ) {
         this.router.get("/", async (req: Request, res: Response) => {
             const result = await this.database.query(
-                `SELECT * FROM nfl.player_game;`, []
+                this.playerGameQueries.getAllPlayerGames()
             );
             res.send(result.rows);
         });
