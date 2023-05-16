@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "project": "./tsconfig.json",
+    "skipLibCheck": true,
+    "swc": true
+  },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
