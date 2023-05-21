@@ -1,0 +1,5 @@
+# Ignoring these directories
+
+tsconfig.json
+node_modules/
+typings/
