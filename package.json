@@ -23,6 +23,28 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": { "project": ["./tsconfig.json"] },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/strict-boolean-expressions": [
+            2,
+            {
+                "allowString" : false,
+                "allowNumber" : false
+            }
+        ]
+    },
+    "ignorePatterns": []
+},
   "nodemonConfig": {
     "restartable": "rs",
     "ignore": [
