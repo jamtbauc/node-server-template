@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.18.2",
     "log4js": "^6.9.1"
   },
@@ -26,26 +27,30 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
     ],
     "parser": "@typescript-eslint/parser",
-    "parserOptions": { "project": ["./tsconfig.json"] },
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json"
+      ]
+    },
     "plugins": [
-        "@typescript-eslint"
+      "@typescript-eslint"
     ],
     "rules": {
-        "@typescript-eslint/strict-boolean-expressions": [
-            2,
-            {
-                "allowString" : false,
-                "allowNumber" : false
-            }
-        ]
+      "@typescript-eslint/strict-boolean-expressions": [
+        2,
+        {
+          "allowString": false,
+          "allowNumber": false
+        }
+      ]
     },
     "ignorePatterns": []
-},
+  },
   "nodemonConfig": {
     "restartable": "rs",
     "ignore": [
