@@ -26,7 +26,7 @@ export class AppServer {
         app.use(compression());
 
         // Attach routes
-        app.use(await new Routes(this.log).getRouter());
+        app.use(new Routes(this.log).router);
         // Attach middleware to send all errors to central error handler
         this.defineErrorHandlingMiddleware(app);
 

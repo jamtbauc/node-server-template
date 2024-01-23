@@ -3,18 +3,23 @@ import { Logger } from "winston";
 import { HealthRoutes } from "../../health/api/routes";
 
 export class Routes {
-    private router: Router;
+    private _router: Router;
 
     constructor(private log: Logger) {
-        this.router = Router();
-        this.defineRoutes();
+        this._router = Router();
+        this.defineRoutes(this.router);
     }
 
-    private async defineRoutes(): Promise<void> {
-        this.router.use("/health", await new HealthRoutes(this.log).getRouter());
+    private async defineRoutes(router: Router): Promise<void> {
+        router.use("/health", await new HealthRoutes(this.log).getRouter());
     }
 
-    public async getRouter(): Promise<Router> {
-        return this.router;
+    // Getter
+    public get router(): Router {
+        if (this._router) {
+            return this._router;
+        } else {
+            throw new Error(`Attempting to get undefined router from Routes!`);
+        }
     }
 }
