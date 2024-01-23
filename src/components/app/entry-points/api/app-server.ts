@@ -50,7 +50,7 @@ export class AppServer {
     private async listenForRequests(app: Application): Promise<AddressInfo> {
         const port: number = 8081; // In live applications, use some sort of environment config
         this.connection = app.listen(port, async () => {
-            this.log.info(`App listening on port: ${port}`);
+            this.log.info(`${new Date().toISOString()}: App listening on port: ${port}`);
             await this.errorHandler.listenToErrorEvents(this.connection);
         });
         return this.connection.address() as AddressInfo;
