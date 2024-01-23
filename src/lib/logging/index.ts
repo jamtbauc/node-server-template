@@ -13,7 +13,7 @@ export class LogService {
 
 	// Getter
 	public get log(): Logger {
-		if (this._log) {
+		if (this._log !== undefined) {
 			return this._log;
 		} else {
 			throw new Error(`Attempting to get undefined log from LogService!`);

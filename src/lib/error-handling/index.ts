@@ -72,7 +72,7 @@ export class ErrorHandler {
 			return appError;
 		}
 
-		const errorType: any = typeof errorToHandle;
+		const errorType = typeof errorToHandle;
 		return new AppError(
 			"general-error",
 			500,
@@ -83,7 +83,7 @@ export class ErrorHandler {
 
 	private async termServerAndExit(): Promise<void> {
 		this.log.error(`Terminating server and exiting...`);
-		if (this.serverRef) {
+		if (this.serverRef!== undefined) {
 			this.serverRef.close();
 		}
 		process.exit();

@@ -16,7 +16,7 @@ export class Routes {
 
 	// Getter
 	public get router(): Router {
-		if (this._router) {
+		if (this._router !== undefined) {
 			return this._router;
 		} else {
 			throw new Error(`Attempting to get undefined router from Routes!`);
