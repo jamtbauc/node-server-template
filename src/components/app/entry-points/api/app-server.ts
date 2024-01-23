@@ -5,7 +5,7 @@ import helmet from "helmet";
 import { Server } from "http";
 import { AddressInfo } from "net";
 import { Logger } from "winston";
-import { ErrorHandler } from "../../../../lib/error-handling/error-handler";
+import { ErrorHandler } from "../../../../lib/error-handling";
 import { Routes } from "../routes";
 
 export class AppServer {

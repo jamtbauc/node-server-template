@@ -1,7 +1,7 @@
 import { AddressInfo } from "net";
 import { Logger } from "winston";
 import { AppServer } from "./components/app/entry-points/api/app-server";
-import { ErrorHandler } from "./lib/error-handling/error-handler";
+import { ErrorHandler } from "./lib/error-handling";
 import { LogService } from "./lib/logging";
 
 export class Index {
