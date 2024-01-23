@@ -4,6 +4,8 @@
   "description": "A node server template.",
   "main": "src/index.ts",
   "scripts": {
+    "eslint": "npx eslint .",
+    "prettier": "npx prettier . --write",
     "start": "nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
