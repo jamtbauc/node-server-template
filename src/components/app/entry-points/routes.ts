@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { LogService } from "../../../lib/logging/log.service";
+import { Logger } from "winston";
 import { HealthRoutes } from "../../health/api/routes";
 
 export class Routes {
     private router: Router;
 
-    constructor(private log: LogService) {
+    constructor(private log: Logger) {
         this.router = Router();
         this.defineRoutes();
     }

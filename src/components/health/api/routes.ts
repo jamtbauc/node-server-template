@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response, Router } from "express";
-import { LogService } from "../../../lib/logging/log.service";
+import { Logger } from "winston";
 
 export class HealthRoutes {
     private router: Router;
 
-    constructor(private log: LogService) {
+    constructor(private log: Logger) {
         this.router = Router();
         this.defineRoutes();
     }

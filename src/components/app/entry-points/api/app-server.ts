@@ -4,15 +4,15 @@ import express, { Application, NextFunction, Request, Response, json, urlencoded
 import helmet from "helmet";
 import { Server } from "http";
 import { AddressInfo } from "net";
+import { Logger } from "winston";
 import { ErrorHandler } from "../../../../lib/error-handling/error-handler";
-import { LogService } from "../../../../lib/logging/log.service";
 import { Routes } from "../routes";
 
 export class AppServer {
     private connection!: Server;
 
     constructor(
-        private log: LogService,
+        private log: Logger,
         private errorHandler: ErrorHandler
     ) {}
 
