@@ -15,7 +15,7 @@ export class HealthRoutes {
 
     private async defineRoutes(): Promise<void> {
         this.router.get("/testService", async (req: Request, res: Response, next: NextFunction) => {
-            await this.log.info(`GET request to: ${req.url}`);
+            this.log.info(`GET request to: ${req.url}`);
             try {
                 res.status(500).send("OK");
             } catch (err: unknown) {

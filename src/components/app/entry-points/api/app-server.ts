@@ -41,7 +41,7 @@ export class AppServer {
             res: Response,
             next: NextFunction
         ) => {
-            await this.log.error(`Error on ${req.method} request to : ${req.url}`);
+            this.log.error(`Error on ${req.method} request to : ${req.url}`);
             await this.errorHandler.handleError(error, res);
             next();
         });
@@ -50,7 +50,7 @@ export class AppServer {
     private async listenForRequests(app: Application): Promise<AddressInfo> {
         const port: number = 8081; // In live applications, use some sort of environment config
         this.connection = app.listen(port, async () => {
-            await this.log.info(`App listening on port: ${port}`);
+            this.log.info(`App listening on port: ${port}`);
             await this.errorHandler.listenToErrorEvents(this.connection);
         });
         return this.connection.address() as AddressInfo;
