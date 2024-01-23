@@ -27,8 +27,5 @@
     "prettier": "^2.8.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
-  },
-  "prettier": {
-    "useTabs": true
   }
 }
