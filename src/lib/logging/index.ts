@@ -1,7 +1,7 @@
 import { Logger, createLogger, format, transports } from "winston";
 
 export class LogService {
-    private _log: Logger;
+    private _log!: Logger;
 
     constructor() {
         this._log = createLogger({
@@ -18,7 +18,7 @@ export class LogService {
         if (this._log) {
             return this._log;
         } else {
-            throw new Error(`${new Date().toISOString()}: Attempting to get undefined log from LogService!`);
+            throw new Error(`Attempting to get undefined log from LogService!`);
         }
     }
 }
