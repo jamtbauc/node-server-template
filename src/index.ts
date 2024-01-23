@@ -21,7 +21,8 @@ export class Index {
             const startResponses: [AddressInfo] = await Promise.all([
                 appServer.startWebServer()
             ]);
-            log.info(`The app has started successfully: ${startResponses}`);
+            log.info(`${new Date().toISOString()}: The app has started successfully!`);
+            log.info(`\tAddressInfo=`, startResponses[0]);
         } catch (err: unknown) {
             await errorHandler.handleError(err);
         }
