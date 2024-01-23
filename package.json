@@ -28,25 +28,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
-  "nodemonConfig": {
-    "restartable": "rs",
-    "ignore": [
-      ".gitignore",
-      "node_modules/**/node_modules"
-    ],
-    "verbose": false,
-    "execMap": {
-      "ts": "ts-node"
-    },
-    "events": {
-      "restart": "echo App restarted due to changes..."
-    },
-    "watch": [],
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "ext": "ts,json"
-  },
   "prettier": {
     "useTabs": true
   }
