@@ -1,8 +1,9 @@
-import { AddressInfo } from "net";
 import compression from "compression";
+import cors from "cors";
 import express, { Application, NextFunction, Request, Response, json, urlencoded } from "express";
 import helmet from "helmet";
 import { Server } from "http";
+import { AddressInfo } from "net";
 import { ErrorHandler } from "../../../../lib/error-handling/error-handler";
 import { LogService } from "../../../../lib/logging/log.service";
 import { Routes } from "../routes";
@@ -18,6 +19,7 @@ export class AppServer {
     public async startWebServer(): Promise<AddressInfo> {
         const app: Application = express();
         
+        app.use(cors());
         app.use(helmet());
         app.use(urlencoded({ extended: true }));
         app.use(json());
