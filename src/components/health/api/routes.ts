@@ -2,19 +2,15 @@ import { NextFunction, Request, Response, Router } from "express";
 import { Logger } from "winston";
 
 export class HealthRoutes {
-    private router: Router;
+    private _router: Router;
 
     constructor(private log: Logger) {
-        this.router = Router();
-        this.defineRoutes();
+        this._router = Router();
+        this.defineRoutes(this.router);
     }
 
-    public async getRouter(): Promise<Router> {
-        return this.router;
-    }
-
-    private async defineRoutes(): Promise<void> {
-        this.router.get("/testService", async (req: Request, res: Response, next: NextFunction) => {
+    private async defineRoutes(router: Router): Promise<void> {
+        router.get("/testService", async (req: Request, res: Response, next: NextFunction) => {
             this.log.info(`GET request to: ${req.url}`);
             try {
                 res.status(500).send("OK");
@@ -22,5 +18,14 @@ export class HealthRoutes {
                 next(err);
             }
         });
+    }
+
+    // Getter
+    public get router(): Router {
+        if (this._router) {
+            return this._router;
+        } else {
+            throw new Error(`Attempting to get undefined router from HealthRoutes!`);
+        }
     }
 }

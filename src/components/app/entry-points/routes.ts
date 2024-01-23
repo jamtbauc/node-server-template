@@ -11,7 +11,7 @@ export class Routes {
     }
 
     private async defineRoutes(router: Router): Promise<void> {
-        router.use("/health", await new HealthRoutes(this.log).getRouter());
+        router.use("/health", new HealthRoutes(this.log).router);
     }
 
     // Getter
