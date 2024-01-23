@@ -14,14 +14,12 @@ export class ErrorHandler {
     public async listenToErrorEvents(server: Server): Promise<void> {
         this.serverRef = server;
 
-        process.on('uncaughtException', async (err: Error, origin: string) => {
-            this.log.error(`Uncaught exception at: ${origin} -> ${err}`);
+        process.on('uncaughtException', async (err: Error) => {
             await this.handleError(err);
         });
 
-        process.on('unhandledRejection', async (reason: Error | any, promise: Promise<any>) => {
-            this.log.error(`Unhandled rejection at: ${promise} -> ${reason}`);
-            throw reason;
+        process.on('unhandledRejection', async (reason: Error) => {
+            await this.handleError(reason);
         });
 
         process.on('SIGTERM', async () => {
