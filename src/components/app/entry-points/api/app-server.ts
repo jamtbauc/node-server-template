@@ -30,8 +30,7 @@ export class AppServer {
         // Attach middleware to send all errors to central error handler
         this.defineErrorHandlingMiddleware(app);
 
-        const APIAddress: AddressInfo = await this.listenForRequests(app);
-        return APIAddress;
+        return await this.listenForRequests(app);
     }
 
     private async defineErrorHandlingMiddleware(app: Application): Promise<void> {
